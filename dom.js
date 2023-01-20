@@ -7,7 +7,7 @@ header.style.borderBottom='2px solid black';
 const additem=document.querySelector('h2');
 additem.style.fontWeight='bold';
 additem.style.color='green'; */
-const listitems =document.getElementsByClassName("list-group-item");
+/* const listitems =document.getElementsByClassName("list-group-item");
 console.log(listitems);
 console.log(listitems[1]);
 listitems[1].innerText='hello';
@@ -22,3 +22,19 @@ for(let i=0;i<listitems.length;i++)
     listitems[i].style.fontWeight='bold';
 }
 listitems[2].style.backgroundColor='green'; //overide pev
+ */
+ const li=document.getElementsByTagName('li');
+console.log(li);
+console.log(li[1]);
+for(let i=0;i<li.length;i++)
+{
+    li[i].style.color='maroon';
+    li[i].style.backgroundColor='#f4f4f4';
+    li[i].style.fontWeight='bold';
+} 
+const listitems=document.getElementsByClassName('list-group-item');
+for(let i=0;i<listitems.length;i++)
+{
+   
+    listitems[i].style.backgroundColor='#f4f4f4';
+}
