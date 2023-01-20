@@ -25,15 +25,19 @@ li.appendChild(document.createTextNode(newitem.value));
 
 //creatte delete button
 const del=document.createElement('button');
+const editbtn=document.createElement('button');
 
 //add class name
 del.className='btn btn-danger btn-sm float-right delete';
+editbtn.className='btn btn-danger btn-sm float-right edit';
 
 //append text node
 del.appendChild(document.createTextNode('x'));
+editbtn.appendChild(document.createTextNode('Edit'));
 
 //append del btun to li
 li.appendChild(del);
+li.appendChild(editbtn);
 
 //append li to itemlist
 itemlist.appendChild(li);
