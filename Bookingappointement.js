@@ -11,6 +11,8 @@ const timeinput=document.querySelector('#time');
 const msg=document.querySelector('.msg');
 const userlist=document.querySelector('#users');
 const btun=document.querySelector('.btn btn-primary');
+
+//add event listener to form 
 myform.addEventListener('submit',onsubmit);
 function onsubmit(e){
     e.preventDefault();
@@ -26,7 +28,28 @@ function onsubmit(e){
      else
      {
         //add to storage
-    localStorage.setItem('User1Details',`${nameinput.value}:${emailinput.value}:${numberinput.value}:${dateinput.value}:${timeinput.value}:`);
+   // localStorage.setItem('User1Details',`${nameinput.value}:${emailinput.value}:${numberinput.value}:${dateinput.value}:${timeinput.value}`);
+    //console.log(localStorage.getItem('User1Details')); 
+
+    // convert objects to string
+    const myobj={
+        nameinput:nameinput.value,
+        emailinput:emailinput.value,
+        numberinput:numberinput.value,
+        timeinput:timeinput.value,
+        dateinput:dateinput.value
+    };
+    const myobj_serialised=JSON.stringify(myobj);
+    console.log(myobj_serialised);
+    localStorage.setItem('User1Details',myobj_serialised);
+
+    //reverse  back to string
+    const myobj_deserialised=JSON.parse(localStorage.getItem('User1Details'));
+    console.log(myobj_deserialised);
+ 
+    /*    console.log(myobj_serialised);
+    console.log(myobj.nameinput);
+    console.log(localStorage.nameinput); */
     //clear fields
     nameinput.value='';
     emailinput.value='';
@@ -35,15 +58,14 @@ function onsubmit(e){
     timeinput.value='';
     
      }
-    const valid=document.querySelector('form');
+    const valid=document.querySelector('#my-form');
     valid.addEventListener('submit',e=>
     {
-        if(!form.checkvalidity())
+        if(!valid.checkValidity())
         {
             e.preventDefault();
         }
-        form.classList.add('was-validated');
+        valid.classList.add('was-validated');
     });
     
-
 }
