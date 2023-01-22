@@ -40,16 +40,18 @@ function onsubmit(e){
         dateinput:dateinput.value
     };
     const myobj_serialised=JSON.stringify(myobj);
-    console.log(myobj_serialised);
     localStorage.setItem(emailinput.value,myobj_serialised);
      
     const li=document.createElement('li');
     const userinfo=document.createTextNode(`${nameinput.value}:${emailinput.value}:${numberinput.value}:${dateinput.value}:${timeinput.value}`);
     const delbtn=document.createElement('button');
     const delbtnname=document.createTextNode('x');
+    const editbtn=document.createElement('button');
+    editbtn.appendChild(document.createTextNode('Edit'));
     delbtn.appendChild(delbtnname);
     delbtn.className='btn btn-danger btn-sm float-right delete';
-    delbtn.onclick=(e)=>{
+    editbtn.className='btn btn-primary btn-sm float-right edit';
+    delbtn.onclick=()=>{
         
             if(confirm('Are you sure?'))
             {
@@ -58,12 +60,23 @@ function onsubmit(e){
     
             }
         }
-    li.appendChild(userinfo);
-    li.appendChild(delbtn);
+    editbtn.onclick=()=>{
+        document.getElementById('name').value=myobj.nameinput;
+        document.getElementById('email').value=myobj.emailinput;
+        document.getElementById('number').value=myobj.numberinput;
+        document.getElementById('date').value=myobj.dateinput;
+        document.getElementById('time').value=myobj.timeinput;
+
+        userlist.removeChild(li);
+            localStorage.removeItem(myobj.emailinput);
+
+        
+    }
 
     
-    
-    
+    li.appendChild(userinfo);
+    li.appendChild(delbtn);
+    li.appendChild(editbtn);
 
     userlist.appendChild(li);
 
