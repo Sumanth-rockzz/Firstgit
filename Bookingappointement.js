@@ -41,7 +41,15 @@ function onsubmit(e){
     };
     const myobj_serialised=JSON.stringify(myobj);
     console.log(myobj_serialised);
-    localStorage.setItem('User1Details',myobj_serialised);
+    localStorage.setItem(emailinput.value,myobj_serialised);
+     
+    const li=document.createElement('li');
+
+    const userinfo=document.createTextNode(`${nameinput.value}:${emailinput.value}:${numberinput.value}:${dateinput.value}:${timeinput.value}`);
+    
+    li.appendChild(userinfo);
+
+    userlist.appendChild(li);
 
     //reverse  back to string
     const myobj_deserialised=JSON.parse(localStorage.getItem('User1Details'));
