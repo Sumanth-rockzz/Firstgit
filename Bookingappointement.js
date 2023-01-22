@@ -44,28 +44,39 @@ function onsubmit(e){
     localStorage.setItem(emailinput.value,myobj_serialised);
      
     const li=document.createElement('li');
-
     const userinfo=document.createTextNode(`${nameinput.value}:${emailinput.value}:${numberinput.value}:${dateinput.value}:${timeinput.value}`);
+    const delbtn=document.createElement('button');
+    const delbtnname=document.createTextNode('x');
+    delbtn.appendChild(delbtnname);
+    delbtn.className='btn btn-danger btn-sm float-right delete';
+    delbtn.onclick=(e)=>{
+        
+            if(confirm('Are you sure?'))
+            {
+            userlist.removeChild(li);
+            localStorage.removeItem(myobj.emailinput);
     
+            }
+        }
     li.appendChild(userinfo);
+    li.appendChild(delbtn);
+
+    
+    
+    
 
     userlist.appendChild(li);
 
-    //reverse  back to string
-    const myobj_deserialised=JSON.parse(localStorage.getItem('User1Details'));
-    console.log(myobj_deserialised);
- 
-    /*    console.log(myobj_serialised);
-    console.log(myobj.nameinput);
-    console.log(localStorage.nameinput); */
     //clear fields
     nameinput.value='';
     emailinput.value='';
     numberinput.value='';
     dateinput.value='';
     timeinput.value='';
-    
      }
+    }
+
+
     const valid=document.querySelector('#my-form');
     valid.addEventListener('submit',e=>
     {
@@ -75,5 +86,3 @@ function onsubmit(e){
         }
         valid.classList.add('was-validated');
     });
-    
-}
