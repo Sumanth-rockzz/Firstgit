@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <script src="js/bootstrap.js"></script> 
+</head>
+<body>
+<div id="myform" class="container  d-flex align-items-center justify-content-center">
+    <div class="border  border-dark rounded-5 border-4 p-5 m-5">
+        <h1 class="mb-5 ">Expense Tracker</h1>
+        <div class="msg">
+        </div>
+        <hr>
+    <label class="form-label">Expense Amount</label>
+     <div class="input-group ">
+            <button class="btn btn-success">$</button> 
+        <input type="number" id="amount" class="form-control" placeholder="Enter your Expense">
+        
+     </div>
+     <label class="form-label" >Date and time</label>
+    <div>
+    <input type="datetime-local" class="form-control-sm" id="date">
+    </div>
+    <label class="form-label">Expenditure Reason</label>
+    <div>
+    <input type="text" class="form-control-sm" id="reason"  placeholder="Mention Reason ">
+    </div>
+    <label class="form-label" >Select Category</label>
+     <div>
+    <select  id="category" class="form-select-sm">
+        <option>Movie</option>
+        <option>Food</option>
+        <option>Shopping</option>
+        <option>Bills</option>
+        <option>Rent</option>
+        <option>Others</option>
+    </div>
+    </select><br><br>
+        <button id="add" class="btn btn-outline-warning text-dark">Add Expenditure</button> 
+</div>
+</div>
+<div>
+<h1>Track of Your Expenses...</h1>
+<table  class="table table-striped table-hover h6">
+    <thead class="table-dark">
+    <tr>
+        <th>Date and Time </th>
+        <th>Amount</th>
+        <th>Reason</th>
+        <th>Category</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+</thead>
+<tbody id="expenseslist">
+</tbody>
+</table>
+</div>
+<script src="Expensetracker.js"></script>
+</body>
+</html>
